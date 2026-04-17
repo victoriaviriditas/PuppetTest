@@ -1,0 +1,140 @@
+:root {
+  --bone: #f0ece4;
+  --bone-dim: rgba(240, 236, 228, 0.6);
+  --bone-faint: rgba(240, 236, 228, 0.25);
+  --thread: rgba(255, 255, 255, 0.7);
+  --ink: #0a0a0c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: var(--bone);
+  font-family: "DM Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+  cursor: default;
+}
+
+/* --- Full-bleed webcam --- */
+#webcam {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* mirror */
+  filter: saturate(0.3) brightness(0.55) contrast(1.15);
+  z-index: 0;
+}
+
+/* --- Canvas overlay — same size as viewport, on top of video --- */
+#overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* --- Minimal top / bottom chrome --- */
+.chrome {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  pointer-events: none;
+}
+.chrome.bottom {
+  top: auto;
+  bottom: 0;
+  justify-content: center;
+}
+
+.wordmark {
+  font-family: "Playfair Display", serif;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.6);
+}
+
+.tag {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+
+.hint {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+  opacity: 0;
+  transition: opacity 1.5s ease 1s;
+}
+body.live .hint { opacity: 1; }
+
+/* --- Start overlay --- */
+.start-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.start-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.start-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  color: var(--bone);
+  cursor: pointer;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.start-btn:hover {
+  transform: scale(1.08);
+}
+.start-btn__icon {
+  display: flex;
+  opacity: 0.8;
+}
+.start-btn__text {
+  font-family: "Playfair Display", serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+/* hide scrollbars */
+::-webkit-scrollbar { display: none; }
+
+@media (max-width: 600px) {
+  .wordmark { font-size: 16px; }
+  .chrome { padding: 14px 16px; }
+}
