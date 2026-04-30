@@ -18,7 +18,7 @@ html, body {
   cursor: default;
 }
 
-/* --- Full-bleed webcam --- */
+/* --- Full-bleed webcam --- */ This needs intense change: license;
 #webcam {
   position: fixed;
   inset: 0;
@@ -59,7 +59,7 @@ html, body {
 }
 
 .wordmark {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", serif;
   font-weight: 300;
   font-size: 22px;
   letter-spacing: 0.12em;
@@ -71,7 +71,7 @@ html, body {
 .tag {
   font-size: 10px;
   letter-spacing: 0.25em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--bone-dim);
   text-shadow: 0 1px 8px rgba(0,0,0,0.6);
 }
@@ -79,7 +79,7 @@ html, body {
 .hint {
   font-size: 10px;
   letter-spacing: 0.3em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--bone-faint);
   text-shadow: 0 1px 8px rgba(0,0,0,0.6);
   opacity: 0;
@@ -124,11 +124,11 @@ body.live .hint { opacity: 1; }
   opacity: 0.8;
 }
 .start-btn__text {
-  font-family: "Playfair Display", serif;
+  font-family: "Helvetica", serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: 0.4em;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 /* hide scrollbars */
